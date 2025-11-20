@@ -1,6 +1,6 @@
 # FishFush
 ## Projekt leírása
-Az FishFush az egy C#-ban írt fikcionális halnyilvántartó konzolos applikációja, amelyben a felhasználó képes felvenni halakat és kilistázni azokat.
+Az FishFush az egy C#-ban írt fikcionális hal nyilvántartó konzolos applikációja, amelyben a felhasználó képes felvenni halakat és kilistázni azokat.
 ### Osztályaink
 - Fish (`virtual`)
 - Herbivore
