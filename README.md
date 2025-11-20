@@ -17,10 +17,10 @@ Az FishFush az egy C#-ban írt fikcionális halnyilvántartó konzolos applikác
   - Lifespan (int)
 - Herbivore
   - _override toString(+Herbivore)_
-  - abstract _herbivoreDesc()_
+  - `abstract` _herbivoreDesc()_
 - Carnivore
   - _override toString(+Carnivore)_
-  - abstract _carnivoreDesc()_
+  - `abstract` _carnivoreDesc()_
 - Ornamental
   - NeededSpace (int)
   - Price (int)
