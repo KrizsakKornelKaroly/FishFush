@@ -48,6 +48,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeaCarnivore.cs" />
     <Compile Include="SeaHerbivore.cs" />
+	<Compile Include="Fish.cs" />
+	<Compile Include="Carnivore.cs" />
+	<Compile Include="Herbivore.cs" />
+	<Compile Include="Ornamental.cs" />
+	<Compile Include="FileIO.cs" />
+	<Compile Include="FreshwaterCarnivore.cs" />
+	<Compile Include="FreshwaterHerbivore.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
