@@ -37,7 +37,7 @@ namespace FishFush
             switch (opcio)
             {
                 case "1":
-                    AddFish.Test();
+                    AddFish.AddFishInterface();
                     break;
                 case "2":
                     break;
