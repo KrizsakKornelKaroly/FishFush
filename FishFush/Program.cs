@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,14 +12,15 @@ namespace FishFush
     {
         static void Main(string[] args)
         {
-            UI();
+            MainMenu();
         }
 
 
 
 
-        public static void UI()
+        public static void MainMenu()
         {
+            Console.Clear();
             Console.BackgroundColor = ConsoleColor.Cyan;
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Black;
@@ -29,6 +32,23 @@ namespace FishFush
             Console.WriteLine("\t\t|             4. Kilépés               |");
             Console.WriteLine("\t\t|                                      |");
             Console.WriteLine("\t\t+--------------------------------------+");
+            Console.WriteLine("\nKérem válasszon a menüpontok közül (1-4): ");
+            string opcio = Convert.ToString(Console.ReadKey().KeyChar);
+            switch (opcio)
+            {
+                case "1":
+                    AddFish.Test();
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                default:
+                    MainMenu();
+                    break;
+            }
         }
     }
 }
