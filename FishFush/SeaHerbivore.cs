@@ -9,26 +9,28 @@ namespace FishFush
     internal class SeaHerbivore : Herbivore
     {
         private double SalinityLevel;
-        public SeaHerbivore(string name, string color, double length, int lifespan, bool isherbivore, double salinityLevel) : base(name, color, length, lifespan, isherbivore)
+        private bool Migrant;
+        public SeaHerbivore(string name, string color, double length, int lifespan, string type, double salinityLevel, bool migrant) : base(name, color, length, lifespan, type)
         {
             SalinityLevel = salinityLevel;
+            Migrant = migrant;
         }
 
         public string isMigrant(bool vandorlo)
         {
             if (vandorlo)
             {
-                return "Vándorló faj.";
+                return "Vándorló";
             }
             else
             {
-                return "Nem vándorló faj.";
+                return "Nem vándorló";
             }
         }
 
         public override string ToString()
         {
-            return $"{Name};{Color};{Length};{Lifespan};{isHerbivore};{SalinityLevel}";
+            return $"\n\tMegnevezés: {Name}\n\tSzín: {Color}\n\tHossz: {Length}\n\tÉlettartam: {Lifespan}\n\tTípus: {Type}\n\tVándorló? {isMigrant(Migrant)}\n\tOptimális környezeti sótartalom: {SalinityLevel}%\n\t-----";
         }
     }
 }

@@ -11,7 +11,7 @@ namespace FishFush
     {
         private int NeededSpace;
         private int Price;
-        public Ornamental(string name, string color, double length, int lifespan, int neededSpace, int price) : base(name, color, length, lifespan)
+        public Ornamental(string name, string color, double length, int lifespan, string type, int neededSpace, int price) : base(name, color, length, lifespan, type)
         {
             NeededSpace = neededSpace;
             Price = price;
@@ -19,7 +19,7 @@ namespace FishFush
 
         public override string ToString()
         {
-            return $"{Name};{Color};{Length};{Lifespan};{NeededSpace};{Price}";
+            return $"\n\tMegnevezés: {Name}\n\tSzín: {Color}\n\tHossz: {Length}\n\tÉlettartam: {Lifespan}\n\tTípus: {Type}\n\tSzükséges hely: {NeededSpace} literes akvárium;\n\tÁr: {Price} Ft\n\t-----";
         }
     }
 }

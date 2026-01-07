@@ -40,6 +40,7 @@ namespace FishFush
                     AddFish.AddFishInterface();
                     break;
                 case "2":
+                    ListFish.ListAllFish();
                     break;
                 case "3":
                     break;

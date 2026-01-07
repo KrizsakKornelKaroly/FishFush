@@ -9,11 +9,8 @@ namespace FishFush
 {
     internal class Carnivore : Fish
     {
-        public bool isCarnivore;
-
-        public Carnivore(string name, string color, double length, int lifespan, bool iscarnivore) : base(name, color, length, lifespan)
+        public Carnivore(string name, string color, double length, int lifespan, string type) : base(name, color, length, lifespan, type)
         {
-            isCarnivore = iscarnivore;
         }
 
         public virtual string carnivoreDesc()
@@ -23,7 +20,7 @@ namespace FishFush
 
         public override string ToString()
         {
-            return $"{Name};{Color};{Length};{Lifespan};{isCarnivore}";
+            return $"{Name};{Color};{Length};{Lifespan};{Type}";
         }
     }
 }

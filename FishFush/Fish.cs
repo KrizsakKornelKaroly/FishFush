@@ -12,13 +12,15 @@ namespace FishFush
         public string Color { get; set; }
         public double Length { get; set; }
         public int Lifespan { get; set; }
+        public string Type { get; set; }
 
-        public Fish(string name, string color, double length, int lifespan)
+        public Fish(string name, string color, double length, int lifespan, string type)
         {
             Name = name;
             Color = color;
             Length = length;
             Lifespan = lifespan;
+            Type = type;
         }
 
         public Fish() { }

@@ -58,13 +58,19 @@ namespace FishFush
                 return;
             }
 
+            string habitatType = "";
             if (fishType.StartsWith("Növényevő") || fishType.StartsWith("Húsevő"))
             {
-
+                habitatType = AddHabitat();
+                if (habitatType == null)
+                {
+                    Program.MainMenu();
+                    return;
+                }
             }
 
 
-            bool resp = FileIO.Write($"{fishName};{fishColor};{fishLength};{fishLifespan};{fishType}");
+            bool resp = FileIO.Write($"{fishName};{fishColor};{fishLength};{fishLifespan};{fishType};{habitatType}");
             if (!resp)
             {
                 DisplayLines("Hiba történt a fájlírás során! Nyomjon meg egy gombot a visszatéréshez a főmenübe.");
@@ -141,6 +147,97 @@ namespace FishFush
 
             return $"Díszhal;{tankSize};{price}";
         }
+
+        private static string AddHabitat()
+        {
+            DisplayLines("Válassza ki a hal élőhelyét:\n\t\t1. Édesvízi\n\t\t2. Sósvízi\n\t\tx. Hozzáadás megszakítása");
+            int habitatType = Console.ReadKey().KeyChar;
+            switch (habitatType)
+            {
+                case '1':
+                    return AddHabitat_Freshwater();
+                case '2':
+                    return AddHabitat_Sea();
+                case 'x':
+                    return null;
+                default:
+                    return AddHabitat();
+            }
+        }
+
+        private static string AddHabitat_Sea()
+        {
+            string migratory = isMigratoryFish();
+            if (migratory == null)
+            {
+                return null;
+            }
+        HalSotartalom:
+            DisplayLines("Élőhelyének optimális sótartalma? (%)");
+            try
+            {
+                string salinityInput = Console.ReadLine();
+                if (salinityInput == "x")
+                {
+                    return null;
+                }
+
+                int salinity = Convert.ToInt32(salinityInput);
+                return $"Sósvízi;{migratory};{salinity}";
+            }
+            catch (Exception)
+            {
+                goto HalSotartalom;
+            }
+
+        }
+
+        private static string AddHabitat_Freshwater()
+        {
+            string migratory = isMigratoryFish();
+            if (migratory == null)
+            {
+                return null;
+            }
+        HalTolerancia:
+            DisplayLines("Sótűrése? (0-10)");
+            try
+            {
+                string saltToleranceInput = Console.ReadLine();
+                if (saltToleranceInput == "x")
+                {
+                    return null;
+                }
+                int saltTolerance = Convert.ToInt32(saltToleranceInput);
+                if (saltTolerance < 0 || saltTolerance > 10)
+                {
+                    goto HalTolerancia;
+                }
+                return $"Édesvízi;{migratory};{saltTolerance}";
+            }
+            catch (Exception)
+            {
+                goto HalTolerancia;
+            }
+        }
+
+        private static string isMigratoryFish()
+        {
+            DisplayLines("Vándorló hal?\n\t\t1. Igen\n\t\t2. Nem\n\t\tx. Hozzáadás megszakítása");
+            int migratoryType = Console.ReadKey().KeyChar;
+            switch (migratoryType)
+            {
+                case '1':
+                    return "Vándorló";
+                case '2':
+                    return "Nem vándorló";
+                case 'x':
+                    return null;
+                default:
+                    return isMigratoryFish();
+            }
+        }
+
 
         private static void DisplayLines(string customLine)
         {
