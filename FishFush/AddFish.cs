@@ -10,9 +10,14 @@ namespace FishFush
             //nev, szín, hossz, élettartam
 
             Console.Clear();
-
+            FishName:
             DisplayLines("Adja meg a hal nevét:\n\t\t- Mégsem: x");
             string fishName = Console.ReadLine();
+
+            if (fishName == null || fishName == "") 
+            {
+                goto FishName;
+            }
 
             if (fishName == "x")
             {
@@ -20,8 +25,15 @@ namespace FishFush
                 return;
             }
 
+            FishColor:
             DisplayLines($"Adja meg a {fishName} színét:\n\t\t- Mégsem: x");
             string fishColor = Console.ReadLine();
+
+            if (fishColor == null || fishColor == "")
+            {
+                goto FishColor;
+            }
+
             if (fishColor == "x")
             {
                 Program.MainMenu();
@@ -34,6 +46,13 @@ namespace FishFush
             try
             {
                 fishLength = Convert.ToDouble(Console.ReadLine());
+                if ( fishLength <= 0)
+                {
+                    goto HalHossz;
+                }   
+                if ( fishLength > 30000) {
+                    goto HalHossz;
+                }
             }
             catch (Exception)
             {
@@ -45,6 +64,14 @@ namespace FishFush
             try
             {
                 fishLifespan = Convert.ToInt32(Console.ReadLine());
+                if (fishLifespan <= 0)
+                {
+                    goto HalElet;
+                }
+                if (fishLifespan > 500)
+                {
+                    goto HalElet;
+                }
             }
             catch (Exception)
             {
@@ -122,6 +149,10 @@ namespace FishFush
                     return null;
                 }
                 tankSize = Convert.ToInt32(tankInput);
+                if (tankSize > 1000000)
+                {
+                    goto NeededSpace;
+                }
             }
             catch (Exception)
             {

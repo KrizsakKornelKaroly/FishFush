@@ -44,5 +44,20 @@ namespace FishFush
                 return false;
             }
         }
+
+
+        public static bool ClearFile()
+        {
+            try
+            {
+                StreamWriter writer = new StreamWriter("fishdata.txt", false, Encoding.UTF8);
+                writer.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

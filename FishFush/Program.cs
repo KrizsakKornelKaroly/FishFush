@@ -28,7 +28,7 @@ namespace FishFush
             Console.WriteLine("\t\t|                                      |");
             Console.WriteLine("\t\t|          1. Hal hozzáadása           |");
             Console.WriteLine("\t\t|          2. Halak listázása          |");
-            Console.WriteLine("\t\t|          3. Hal módosítása           |");
+            Console.WriteLine("\t\t|          3. Hal törlése              |");
             Console.WriteLine("\t\t|             4. Kilépés               |");
             Console.WriteLine("\t\t|                                      |");
             Console.WriteLine("\t\t+--------------------------------------+");
@@ -43,6 +43,7 @@ namespace FishFush
                     ListFish.ListAllFish();
                     break;
                 case "3":
+                    DeleteFish.RemoveFish();
                     break;
                 case "4":
                     break;
